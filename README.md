@@ -4,7 +4,7 @@
 
 v0.0.2
 
-![alt text](screenshots/ngus.gif "Famo.us DOMElement and Mesh in a Mixed Mode Scene")
+![alt text](http://ngus.io/screenshots/ngus.gif "Famo.us DOMElement and Mesh in a Mixed Mode Scene")
 
 ngus gives Angular 2 developers access to Famo.us DOMElement and Mesh inside of templates. This seed project sets up the very minimal needed to develop ngus projects.
 
