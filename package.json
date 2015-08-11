@@ -1,0 +1,16 @@
+{
+  "name": "ngus-seed",
+  "version": "0.0.2",
+  "description": "Basic seed project for Angular 2, featuring the Famous Engine.",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steve Belovarich",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^1.5.0-beta",
+    "famous": "git+https://github.com/Famous/engine.git#develop",
+    "ngus": "^0.0.2"
+  }
+}
