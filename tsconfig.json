@@ -12,6 +12,10 @@
     },
     "filesGlob": [
         "./**/*.ts",
+        "!./ngus/*.ts",
+        "!./ngus/**/*.ts",
+        "!./ngus/**/**/*.ts",
+        "!./ngus/node_modules/**/*.ts",
         "!./node_modules/**/*.ts"
     ],
     "files": [

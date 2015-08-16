@@ -1,5 +1,3 @@
-//ngus alpha-0.0.3
-
 System.register(['./service/famous', './core/node', './core/dom-element', './webgl-renderables/mesh', './components/camera'], function(exports_1) {
     function exportStar_1(m) {
         for(var n in m) {

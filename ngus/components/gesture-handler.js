@@ -13,7 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };System.register(['angular2/angular2', '../core/node'], function(exports_1) {
     var angular2_1, node_1;
-    var FaMesh;
+    var FaGestureHandler;
     return {
         setters:[
             function (_angular2_1) {
@@ -23,35 +23,36 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
                 node_1 = _node_1;
             }],
         execute: function() {
-            FaMesh = (function () {
-                function FaMesh(parent) {
-                    var Mesh = famous.webglRenderables.Mesh;
-                    this.mesh = new Mesh(parent.node);
+            FaGestureHandler = (function () {
+                function FaGestureHandler(parent) {
+                    var GestureHandler = famous.components.GestureHandler;
+                    this.node = parent.node;
+                    this.gestures = new GestureHandler(this.node);
                 }
-                FaMesh.prototype.onInit = function () {
-                    var Color = famous.utilities.Color;
-                    if (this.detail && this.geometry) {
-                        this.mesh.setGeometry(this.geometry, { detail: this.detail });
-                    }
-                    else if (this.geometry) {
-                        this.mesh.setGeometry(this.geometry);
-                    }
-                    this.color ? this.mesh.setBaseColor(new Color(this.color)) : this.mesh.setBaseColor(new Color('#FAFAFA'));
+                FaGestureHandler.prototype.onInit = function () {
+                    var g = this;
+                    this.drag ? this.gestures.on({ event: 'drag' }, g.drag.currentValue.bind(this.node)) : false;
+                    this.tap ? this.gestures.on({ event: 'tap' }, g.tap.currentValue.bind(this.node)) : false;
+                    this.rotate ? this.gestures.on({ event: 'rotate' }, g.rotate.currentValue.bind(this.node)) : false;
+                    this.pinch ? this.gestures.on({ event: 'drag' }, g.pinch.currentValue.bind(this.node)) : false;
                 };
-                FaMesh = __decorate([
+                FaGestureHandler.prototype.onChange = function (changes) {
+                    // add some gestures
+                };
+                FaGestureHandler = __decorate([
                     angular2_1.Component({
-                        selector: 'fa-mesh',
-                        properties: ['geometry', 'color', 'detail']
+                        selector: 'fa-gesture-handler',
+                        properties: ['drag', 'tap', 'rotate', 'pinch']
                     }),
                     angular2_1.View({
                         template: ""
                     }),
                     __param(0, angular2_1.Host()), 
                     __metadata('design:paramtypes', [node_1.FaNode])
-                ], FaMesh);
-                return FaMesh;
+                ], FaGestureHandler);
+                return FaGestureHandler;
             })();
-            exports_1("FaMesh", FaMesh);
+            exports_1("FaGestureHandler", FaGestureHandler);
         }
     }
 });
